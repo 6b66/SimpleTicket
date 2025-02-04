@@ -1,0 +1,30 @@
+version: '3'
+services:
+  server:
+    build:
+      context: ./
+      dockerfile: ./SimpleTickets/Dockerfile
+    networks:
+      - serverdb
+    ports:
+      - "8080:8080"
+      - "443:443"
+  ui:
+    build:
+      context: ./
+      dockerfile: ./simple-tickets-ui/Dockerfile
+    tty: true
+    ports:
+      - 3000:3000
+  db:
+    build:
+      context: ./
+      dockerfile: ./SimpleTicketsDB/Dockerfile
+    networks:
+      - serverdb
+    ports:
+      - 5432:5432
+
+networks:
+  serverdb:
+    driver: bridge
