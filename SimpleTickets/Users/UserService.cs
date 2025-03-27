@@ -4,7 +4,7 @@ using SimpleTickets.Repositories;
 
 namespace SimpleTickets.Services;
 
-public class UserService : IUserService
+public class UserService
 {
     private readonly IUserRepository _userRepository;
 

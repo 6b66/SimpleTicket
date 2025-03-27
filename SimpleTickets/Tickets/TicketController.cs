@@ -11,9 +11,9 @@ public class TicketController : ControllerBase
 {
     private readonly ILogger<TicketController> _logger;
 
-    private readonly ITicketService _ticketService;
+    private readonly TicketService _ticketService;
 
-    public TicketController(ILogger<TicketController> logger, ITicketService userService)
+    public TicketController(ILogger<TicketController> logger, TicketService userService)
     {
         _logger = logger;
         _ticketService = userService;
