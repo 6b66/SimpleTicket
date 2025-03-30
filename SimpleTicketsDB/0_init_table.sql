@@ -22,7 +22,7 @@ CREATE TABLE bord (
     project_id UUID REFERENCES project (id),
     title VARCHAR(100) NOT NULL,
     description TEXT NOT NULL,
-    bord_column UUID[] NOT NULL,
+    bord_columns UUID[] NOT NULL,
     created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 

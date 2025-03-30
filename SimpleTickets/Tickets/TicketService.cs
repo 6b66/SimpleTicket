@@ -6,15 +6,15 @@ namespace SimpleTickets.Services;
 
 public class TicketService
 {
-    private readonly ITicketRepository _userRepository;
+    private readonly ITicketRepository _ticketRepository;
 
-    public TicketService(ITicketRepository userRepository)
+    public TicketService(ITicketRepository ticketRepository)
     {
-        _userRepository = userRepository;
+        _ticketRepository = ticketRepository;
     }
 
     public async Task<List<Ticket>> ListTickets()
     {
-        return await _userRepository.ListTicketsAsync();
+        return await _ticketRepository.ListTicketsAsync();
     }
 }

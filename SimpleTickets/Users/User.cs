@@ -6,7 +6,7 @@ public class User
     /// <summary>
     /// ユーザId
     /// </summary>
-    public Guid? Id {get;}
+    public Guid Id {get;}
     
     /// <summary>
     /// ユーザ名
@@ -16,7 +16,7 @@ public class User
     /// <summary>
     /// 作成日時
     /// </summary>
-    public DateTime? CreatedDate {get;}
+    public DateTime CreatedDate {get;}
 
     /// <summary>
     /// デフォルトコンストラクタ

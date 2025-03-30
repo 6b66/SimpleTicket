@@ -34,3 +34,4 @@ C:\Users\javac\Desktop\project\SimpleTickets\SimpleTickets\obj\Debug\net8.0\refi
 C:\Users\javac\Desktop\project\SimpleTickets\SimpleTickets\obj\Debug\net8.0\SimpleTickets.pdb
 C:\Users\javac\Desktop\project\SimpleTickets\SimpleTickets\obj\Debug\net8.0\SimpleTickets.genruntimeconfig.cache
 C:\Users\javac\Desktop\project\SimpleTickets\SimpleTickets\obj\Debug\net8.0\ref\SimpleTickets.dll
+C:\Users\javac\Desktop\project\SimpleTickets\SimpleTickets\obj\Debug\net8.0\SimpleTickets.sourcelink.json

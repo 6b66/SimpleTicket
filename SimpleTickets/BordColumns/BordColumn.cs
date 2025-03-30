@@ -1,12 +1,12 @@
 
 namespace SimpleTickets.Models;
 
-public class Ticket
+public class BordColumn
 {
     /// <summary>
     /// チケットId
     /// </summary>
-    public Guid Id {get;}
+    public Guid? Id {get;}
 
     /// <summary>
     /// プロジェクトId
@@ -46,9 +46,9 @@ public class Ticket
     /// <summary>
     /// デフォルトコンストラクタ
     /// </summary>
-    public Ticket() {}
+    public BordColumn() {}
 
-    public Ticket(Guid id, Guid projectId, Guid columnId, int position, string title, string description, Guid status, DateTime createdDate)
+    public BordColumn(Guid id, Guid projectId, Guid columnId, int position, string title, string description, Guid status, DateTime createdDate)
     {
         Id = id;
         ProjectId = projectId;

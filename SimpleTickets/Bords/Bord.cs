@@ -1,10 +1,12 @@
 
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace SimpleTickets.Models;
 
-public class Ticket
+public class Bord
 {
     /// <summary>
-    /// チケットId
+    /// ボードId
     /// </summary>
     public Guid Id {get;}
 
@@ -12,16 +14,6 @@ public class Ticket
     /// プロジェクトId
     /// </summary>
     public Guid ProjectId {get;}
-
-    /// <summary>
-    /// カラムId
-    /// </summary>
-    public Guid ColumnId {get;}
-
-    /// <summary>
-    /// 表示位置番号
-    /// </summary>
-    public int Position {get;}
 
     /// <summary>
     /// タイトル
@@ -34,29 +26,27 @@ public class Ticket
     public string Description {get;} = "";
 
     /// <summary>
-    /// 状態
+    /// カラム一覧
     /// </summary>
-    public Guid Status {get;}
+    public List<Guid> BordColumns {get;} = new List<Guid>();
 
     /// <summary>
     /// 作成日時
     /// </summary>
-    public DateTime? CreatedDate {get;}
+    public DateTime CreatedDate {get;}
 
     /// <summary>
     /// デフォルトコンストラクタ
     /// </summary>
-    public Ticket() {}
+    public Bord() {}
 
-    public Ticket(Guid id, Guid projectId, Guid columnId, int position, string title, string description, Guid status, DateTime createdDate)
+    public Bord(Guid id, Guid projectId, string title, string description, List<Guid> bordColumns, DateTime createdDate)
     {
         Id = id;
         ProjectId = projectId;
-        ColumnId = columnId;
-        Position = position;
         Title = title;
         Description = description;
-        Status = status;
+        BordColumns = bordColumns;
         CreatedDate = createdDate;
     }
 }

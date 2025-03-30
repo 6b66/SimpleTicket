@@ -10,17 +10,17 @@ INSERT INTO project (id, name, description, managers, members) VALUES
     ARRAY['550e8400-e29b-41d4-a716-446655440000']::uuid[]
 );
 
-INSERT INTO bord_column (id, project_id, title) VALUES
-    ('550e8400-e29b-41d4-a716-446655440002', '550e8400-e29b-41d4-a716-446655440001', 'ToDo');
-INSERT INTO bord_column (id, project_id, title) VALUES
-    ('550e8400-e29b-41d4-a716-446655440003', '550e8400-e29b-41d4-a716-446655440001', 'Done');
+INSERT INTO bord_column (id, project_id, title, position) VALUES
+    ('550e8400-e29b-41d4-a716-446655440002', '550e8400-e29b-41d4-a716-446655440001', 'ToDo', 0);
+INSERT INTO bord_column (id, project_id, title, position) VALUES
+    ('550e8400-e29b-41d4-a716-446655440003', '550e8400-e29b-41d4-a716-446655440001', 'Done', 1);
 
 INSERT INTO status (id, project_id, label) VALUES
     ('550e8400-e29b-41d4-a716-446655440004', '550e8400-e29b-41d4-a716-446655440001', 'Open');
 INSERT INTO status (id, project_id, label) VALUES
     ('550e8400-e29b-41d4-a716-446655440005', '550e8400-e29b-41d4-a716-446655440001', 'Close');
 
-INSERT INTO bord (id, project_id, title, description, bord_column) VALUES
+INSERT INTO bord (id, project_id, title, description, bord_columns) VALUES
 (
     '550e8400-e29b-41d4-a716-446655440006',
     '550e8400-e29b-41d4-a716-446655440001',
