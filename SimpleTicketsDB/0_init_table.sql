@@ -30,6 +30,7 @@ CREATE TABLE bord_column (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     project_id UUID REFERENCES project (id),
     title VARCHAR(100) NOT NULL,
+    ticket_ids UUID[] NOT NULL,
     created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -44,7 +45,6 @@ CREATE TABLE ticket (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     project_id UUID REFERENCES project (id),
     column_id UUID REFERENCES bord_column (id),
-    position INTEGER NOT NULL,
     title VARCHAR(100) NOT NULL,
     description TEXT NOT NULL,
     status UUID REFERENCES status (id),

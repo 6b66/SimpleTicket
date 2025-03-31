@@ -19,11 +19,6 @@ public class Ticket
     public Guid ColumnId {get;}
 
     /// <summary>
-    /// 表示位置番号
-    /// </summary>
-    public int Position {get;}
-
-    /// <summary>
     /// タイトル
     /// </summary>
     public string Title {get;} = "";
@@ -48,12 +43,11 @@ public class Ticket
     /// </summary>
     public Ticket() {}
 
-    public Ticket(Guid id, Guid projectId, Guid columnId, int position, string title, string description, Guid status, DateTime createdDate)
+    public Ticket(Guid id, Guid projectId, Guid columnId, string title, string description, Guid status, DateTime createdDate)
     {
         Id = id;
         ProjectId = projectId;
         ColumnId = columnId;
-        Position = position;
         Title = title;
         Description = description;
         Status = status;

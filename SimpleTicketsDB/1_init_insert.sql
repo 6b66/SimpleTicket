@@ -10,10 +10,21 @@ INSERT INTO project (id, name, description, managers, members) VALUES
     ARRAY['550e8400-e29b-41d4-a716-446655440000']::uuid[]
 );
 
-INSERT INTO bord_column (id, project_id, title, position) VALUES
-    ('550e8400-e29b-41d4-a716-446655440002', '550e8400-e29b-41d4-a716-446655440001', 'ToDo', 0);
-INSERT INTO bord_column (id, project_id, title, position) VALUES
-    ('550e8400-e29b-41d4-a716-446655440003', '550e8400-e29b-41d4-a716-446655440001', 'Done', 1);
+INSERT INTO bord_column (id, project_id, title, ticket_ids) VALUES
+(
+    '550e8400-e29b-41d4-a716-446655440002',
+    '550e8400-e29b-41d4-a716-446655440001',
+    'ToDo',
+    ARRAY['550e8400-e29b-41d4-a716-446655440010']::uuid[]
+);
+
+INSERT INTO bord_column (id, project_id, title, ticket_ids) VALUES
+(
+    '550e8400-e29b-41d4-a716-446655440003',
+    '550e8400-e29b-41d4-a716-446655440001',
+    'Done',
+    ARRAY[]::uuid[]
+);
 
 INSERT INTO status (id, project_id, label) VALUES
     ('550e8400-e29b-41d4-a716-446655440004', '550e8400-e29b-41d4-a716-446655440001', 'Open');
@@ -29,12 +40,11 @@ INSERT INTO bord (id, project_id, title, description, bord_columns) VALUES
     ARRAY['550e8400-e29b-41d4-a716-446655440002', '550e8400-e29b-41d4-a716-446655440003']::uuid[]
 );
 
-INSERT INTO ticket (id, project_id, column_id, position, title, description, status) VALUES
+INSERT INTO ticket (id, project_id, column_id, title, description, status) VALUES
 (
     '550e8400-e29b-41d4-a716-446655440010',
     '550e8400-e29b-41d4-a716-446655440001', 
     '550e8400-e29b-41d4-a716-446655440002',
-    1,
     'Test Ticket', 
     'This is a test ticket',
     '550e8400-e29b-41d4-a716-446655440004'

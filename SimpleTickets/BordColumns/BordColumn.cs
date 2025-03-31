@@ -4,7 +4,7 @@ namespace SimpleTickets.Models;
 public class BordColumn
 {
     /// <summary>
-    /// チケットId
+    /// ボードのカラムId
     /// </summary>
     public Guid? Id {get;}
 
@@ -14,29 +14,14 @@ public class BordColumn
     public Guid ProjectId {get;}
 
     /// <summary>
-    /// カラムId
-    /// </summary>
-    public Guid ColumnId {get;}
-
-    /// <summary>
-    /// 表示位置番号
-    /// </summary>
-    public int Position {get;}
-
-    /// <summary>
     /// タイトル
     /// </summary>
     public string Title {get;} = "";
 
     /// <summary>
-    /// 詳細、リッチテキスト(になればいいな)
+    /// チケット一覧
     /// </summary>
-    public string Description {get;} = "";
-
-    /// <summary>
-    /// 状態
-    /// </summary>
-    public Guid Status {get;}
+    public List<Guid> TicketIds {get;} = new List<Guid>();
 
     /// <summary>
     /// 作成日時
@@ -48,15 +33,12 @@ public class BordColumn
     /// </summary>
     public BordColumn() {}
 
-    public BordColumn(Guid id, Guid projectId, Guid columnId, int position, string title, string description, Guid status, DateTime createdDate)
+    public BordColumn(Guid id, Guid projectId, string title, string description, List<Guid> ticketIds, DateTime createdDate)
     {
         Id = id;
         ProjectId = projectId;
-        ColumnId = columnId;
-        Position = position;
         Title = title;
-        Description = description;
-        Status = status;
+        TicketIds = ticketIds;
         CreatedDate = createdDate;
     }
 }

@@ -30,7 +30,7 @@ public class Status
     /// </summary>
     public Status() {}
 
-    public Status(Guid id, Guid projectId, string label, Guid status, DateTime createdDate)
+    public Status(Guid id, Guid projectId, string label, DateTime createdDate)
     {
         Id = id;
         ProjectId = projectId;
