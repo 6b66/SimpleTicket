@@ -1,8 +1,14 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { TicketApi } from './apis/ticket/ticketApi';
 
 function App() {
+  const api = new TicketApi();
+  api.list().then(tickets => {
+    console.log(tickets[0]);
+  });
+
   return (
     <div className="App">
       <header className="App-header">
