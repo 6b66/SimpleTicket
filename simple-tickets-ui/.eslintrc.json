@@ -1,0 +1,42 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "@typescript-eslint"
+  ],
+  "rules": {
+    "curly": "error",
+    "dot-notation": "error",
+    "no-undef-init": "error",
+    "no-useless-rename": "error",
+    "no-useless-return": "error",
+    "no-var": "error",
+    "object-shorthand": "error",
+    "one-var": [ "error", { "initialized": "never", "uninitialized": "always" } ],
+    "prefer-const": "error",
+    "prefer-template": "error",
+    "array-bracket-spacing": [ "error", "always" ],
+    "generator-star-spacing": [ "error", "both" ],
+    "space-before-function-paren": [ "off", "always" ],
+    "yield-star-spacing": [ "error", "both" ],
+    "indent": ["error", 2]
+  }
+}

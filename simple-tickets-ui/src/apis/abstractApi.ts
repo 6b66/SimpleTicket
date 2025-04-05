@@ -1,13 +1,13 @@
-import { ApiParams } from "./apiParams";
+import { ApiParams, ApiParamsUtil } from "./apiParams";
 
 /**
  * API(HTTP)でリソースを取得する抽象クラス
  */
 export abstract class AbstractApi<T> {
   /**
-   * 取得先ドメイン
+   * ホスト
    */
-  protected abstract baseUrl: string;
+  protected baseUrl = "localhost:8080";
 
   /**
    * APIによるリソースの一覧取得
@@ -15,9 +15,9 @@ export abstract class AbstractApi<T> {
    * @param params パラメタ
    * @returns 
    */
-  async list(params?: ApiParams): Promise<T[]> {
-    const queryString = this.getQueryString(params);
-    const url = queryString ? `${this.baseUrl}?${queryString}` : `${this.baseUrl}`
+  protected async list(apiPath: string, params?: ApiParams): Promise<T[]> {
+    const queryString = ApiParamsUtil.getQueryString(params);
+    const url = `${this.baseUrl}${queryString}`;
     const response = await fetch(url, {
       method: 'GET',
       mode: 'cors'
@@ -35,23 +35,4 @@ export abstract class AbstractApi<T> {
    * @param response レスポンス
    */
   protected abstract handleError(response: Response): void;
-
-  /**
-   * ApiPramsをクエリストリング(文字列に変換)
-   * 
-   * @param params ApiPapamsオブジェクト
-   * @returns クエリストリング
-   */
-  private getQueryString(params: ApiParams) {
-    if (!params) return '';
-    const query = new URLSearchParams(
-      Object.entries(params).reduce((acc, [key, value]) => {
-        if (value !== undefined) {
-          acc[key] = String(value);
-        }
-        return acc;
-      }, {} as Record<string, string>)
-    );
-    return query.toString();
-  }
 }
