@@ -1,10 +1,8 @@
-using Dapper;
+using Microsoft.EntityFrameworkCore;
 using SimpleTickets.Repositories;
 using SimpleTickets.Services;
+using SimpleTickets.Data;
 
-// DB
-Dapper.DefaultTypeMap.MatchNamesWithUnderscores = true;
-SqlMapper.AddTypeHandler(new GenericArrayHandler<Guid>());
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,8 +13,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 // 共通
-builder.Services.AddScoped<IDbConnectionFactory, DbConnectionFactory>();
 
 // User
 builder.Services.AddScoped<IUserRepository, UserRepository>();

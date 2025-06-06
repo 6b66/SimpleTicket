@@ -6,37 +6,37 @@ public class Ticket
     /// <summary>
     /// チケットId
     /// </summary>
-    public Guid Id {get;}
+    public Guid Id { get; private set; }
 
     /// <summary>
     /// プロジェクトId
     /// </summary>
-    public Guid ProjectId {get;}
+    public Guid ProjectId { get; private set; }
 
     /// <summary>
     /// カラムId
     /// </summary>
-    public Guid ColumnId {get;}
+    public Guid ColumnId { get; private set; }
 
     /// <summary>
     /// タイトル
     /// </summary>
-    public string Title {get;} = "";
+    public string Title { get; private set; } = "";
 
     /// <summary>
     /// 詳細、リッチテキスト(になればいいな)
     /// </summary>
-    public string Description {get;} = "";
+    public string Description { get; private set; } = "";
 
     /// <summary>
     /// 状態
     /// </summary>
-    public Guid Status {get;}
+    public Guid Status { get; private set; }
 
     /// <summary>
     /// 作成日時
     /// </summary>
-    public DateTime? CreatedDate {get;}
+    public DateTime? CreatedDate { get; private set; }
 
     /// <summary>
     /// デフォルトコンストラクタ

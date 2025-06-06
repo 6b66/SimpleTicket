@@ -6,27 +6,27 @@ public class BordColumn
     /// <summary>
     /// ボードのカラムId
     /// </summary>
-    public Guid? Id {get;}
+    public Guid? Id { get; private set; }
 
     /// <summary>
     /// プロジェクトId
     /// </summary>
-    public Guid ProjectId {get;}
+    public Guid ProjectId { get; private set; }
 
     /// <summary>
     /// タイトル
     /// </summary>
-    public string Title {get;} = "";
+    public string Title { get; private set; } = "";
 
     /// <summary>
     /// チケット一覧
     /// </summary>
-    public List<Guid> TicketIds {get;} = new List<Guid>();
+    public List<Guid> TicketIds { get; private set; } = new List<Guid>();
 
     /// <summary>
     /// 作成日時
     /// </summary>
-    public DateTime? CreatedDate {get;}
+    public DateTime? CreatedDate { get; private set; }
 
     /// <summary>
     /// デフォルトコンストラクタ

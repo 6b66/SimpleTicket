@@ -1,21 +1,20 @@
-using Dapper;
+using Microsoft.EntityFrameworkCore;
 using SimpleTickets.Models;
+using SimpleTickets.Data;
 
 namespace SimpleTickets.Repositories;
 
 public class BordRepository : IBordRepository
 {
-    private readonly IDbConnectionFactory _dbConnectionFactory;
+    private readonly ApplicationDbContext _db;
 
-    public BordRepository(IDbConnectionFactory dbConnectionFactory) {
-        _dbConnectionFactory = dbConnectionFactory;
+    public BordRepository(ApplicationDbContext db)
+    {
+        _db = db;
     }
 
     public async Task<List<Bord>> ListBordsAsync()
     {
-        string sql = "SELECT * FROM bord";
-        var connection = _dbConnectionFactory.CreateConnection();
-        var result = await connection.QueryAsync<Bord>(sql);
-        return [.. result];
+        return await _db.Bords.ToListAsync();
     }
 }
