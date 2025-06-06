@@ -7,7 +7,7 @@ export abstract class AbstractApi<T> {
   /**
    * ホスト
    */
-  protected baseUrl = "localhost:8080";
+  protected baseUrl = "http://localhost:8080";
 
   /**
    * APIによるリソースの一覧取得
@@ -17,7 +17,7 @@ export abstract class AbstractApi<T> {
    */
   protected async list(apiPath: string, params?: ApiParams): Promise<T[]> {
     const queryString = ApiParamsUtil.getQueryString(params);
-    const url = `${this.baseUrl}${queryString}`;
+    const url = `${this.baseUrl}${apiPath}${queryString}`;
     const response = await fetch(url, {
       method: 'GET',
       mode: 'cors'
