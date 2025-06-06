@@ -8,22 +8,22 @@ public class Status
     /// <summary>
     /// ステータスId
     /// </summary>
-    public Guid Id {get;}
+    public Guid Id { get; private set; }
 
     /// <summary>
     /// プロジェクトId
     /// </summary>
-    public Guid ProjectId {get;}
+    public Guid ProjectId { get; private set; }
 
     /// <summary>
     /// 表示ラベル
     /// </summary>
-    public string Label {get;} = "";
+    public string Label { get; private set; } = "";
 
     /// <summary>
     /// 作成日時
     /// </summary>
-    public DateTime CreatedDate {get;}
+    public DateTime CreatedDate { get; private set; }
 
     /// <summary>
     /// デフォルトコンストラクタ

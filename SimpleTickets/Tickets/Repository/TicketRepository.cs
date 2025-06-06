@@ -1,21 +1,20 @@
-using Dapper;
+using Microsoft.EntityFrameworkCore;
 using SimpleTickets.Models;
+using SimpleTickets.Data;
 
 namespace SimpleTickets.Repositories;
 
 public class TicketRepository : ITicketRepository
 {
-    private readonly IDbConnectionFactory _dbConnectionFactory;
+    private readonly ApplicationDbContext _db;
 
-    public TicketRepository(IDbConnectionFactory dbConnectionFactory) {
-        _dbConnectionFactory = dbConnectionFactory;
+    public TicketRepository(ApplicationDbContext db)
+    {
+        _db = db;
     }
 
     public async Task<List<Ticket>> ListTicketsAsync()
     {
-        string sql = "SELECT * FROM ticket";
-        var connection = _dbConnectionFactory.CreateConnection();
-        var result = await connection.QueryAsync<Ticket>(sql);
-        return [.. result];
+        return await _db.Tickets.ToListAsync();
     }
 }
