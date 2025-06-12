@@ -1,0 +1,23 @@
+.kanban-board {
+  padding: 20px;
+}
+
+.kanban-columns {
+  display: flex;
+  gap: 16px;
+}
+
+.kanban-column {
+  background: #f4f5f7;
+  border-radius: 4px;
+  padding: 8px;
+  width: 200px;
+}
+
+.kanban-ticket {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 4px 8px;
+  margin-bottom: 8px;
+}
